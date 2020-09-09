@@ -85,10 +85,8 @@ function simpleFizzBuzz(n) {
   
   if ( n % 3 === 0 && n % 5 === 0) { 
     return "fizzbuzz"; }
-  // if the number is divisible by 5, write "Buzz"
   else if ( n % 3 === 0) {
     return "fizz"; }
-    // otherwise, write just the number
   else if ( n % 5 === 0) {
       return "buzz"; }
   else {
