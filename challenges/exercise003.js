@@ -1,7 +1,7 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
   
-  return arr.map(function (x) {
+  return nums.map(function (x) {
     return Math.pow(x, 2);
   });
     
@@ -20,7 +20,12 @@ function camelCaseWords(words) {
 
 function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
-  // Your code here!
+  var numSubjects = 0;
+  
+  for(i = 0; i < people.length; i++){
+    numSubjects += people[i].subjects.length;
+  }
+  return numSubjects
 }
 
 function checkIngredients(menu, ingredient) {
