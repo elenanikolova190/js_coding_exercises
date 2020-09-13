@@ -46,8 +46,19 @@ function checkIngredients(menu, ingredient) {
 function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
-  // Your code here!
+
+  const intersection = arr1.filter(element => arr2.includes(element));
+  var arrOut = intersection.sort()
+
+  for(i = 0; i < arrOut.length; i++ ){
+    if(arrOut[i]==arrOut[i+1]){
+      var removed = arrOut.splice(i+1, 1)
+      i--
+    }
+  }
+  return arrOut
 }
+
 
 module.exports = {
   getSquares,
