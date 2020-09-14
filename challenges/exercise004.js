@@ -2,11 +2,11 @@ function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
   
   var arrOut = []
-  for(i = 0; i< nums.length; i++){
-    if(nums[i] < 1){
-      arrOut.push(nums[i])
+  nums.forEach(function(item) {
+    if(item < 1){
+      arrOut.push(item)
     }
-  }
+  })
  return arrOut
 }
 
@@ -15,12 +15,11 @@ function findNamesBeginningWith(names, char) {
   if (!char) throw new Error("char is required");
   
   var namesOut = []
-  for(let i = 0, j = 0; i < names.length; i++){
-    if(names[i][0] == char){
-      namesOut[j] = names[i]
-      j++
-    }
-  }
+  names.forEach(function(item){
+    if( item[0] == char){
+      namesOut.push(item)
+    } 
+  })
   return namesOut
 }
 
@@ -28,12 +27,11 @@ function findVerbs(words) {
   if (!words) throw new Error("words is required");
   
   var wordsOut = []
-  for(let i=0, j = 0; i<words.length; i++){
-    if(words[i].substring(0,3) == "to "){
-      wordsOut[j] = words[i]
-      j++
+  words.forEach(function(item){
+    if(item.substring(0,3) == "to "){
+      wordsOut.push(item)
     }
-  }
+  })
 return wordsOut
 } 
 
@@ -41,12 +39,11 @@ function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
 
   var arrOut = []
-  for(let i= 0, j = 0; i < nums.length; i++){
-    if(nums[i] % 1 === 0){
-      arrOut[j] = nums[i]
-      j++
+  nums.forEach(function(item) {
+    if(item % 1 === 0){
+      arrOut.push(item)
     }
-  }
+  })
 return arrOut  
 }
 
@@ -54,9 +51,9 @@ function getCities(users) {
   if (!users) throw new Error("users is required");
   
   var cities = [];
-  for(let i = 0; i <users.length; i++){
-    cities[i] = users[i].data.city.displayName
-  }
+  users.forEach(function(item) {
+    cities.push(item.data.city.displayName)
+  });
 return cities
 }
 
@@ -64,10 +61,9 @@ function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
   
   var numsOut = []
-  for(let i = 0; i< nums.length; i++){
-   numsOut[i] = Math.sqrt(nums[i])
-   numsOut[i] = Math.round(numsOut[i] * 100) / 100 
-  }
+  nums.forEach(function(item) {
+    numsOut.push(Math.round(Math.sqrt(item) * 100) / 100 )
+  });
   return numsOut
 }
 
@@ -76,21 +72,21 @@ function findSentencesContaining(sentences, str) {
   if (!str) throw new Error("str is required");
   
   var strOut = [];
-  for(let i = 0, j = 0; i < sentences.length; i++){
-    if(sentences[i].toLowerCase().indexOf(str.toLowerCase()) != -1){
-      strOut[j] = sentences[i]
-      j++
+  sentences.forEach(function(item) {
+    if(item.toLowerCase().indexOf(str.toLowerCase()) != -1){
+      strOut.push(item)
     }
-  }
+  })
   return strOut
 }
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
+  
   var arrOut = []
-  for(let i= 0; i<triangles.length; i++){
-    arrOut[i] = Math.max(...triangles[i])
-  }
+  triangles.forEach(function(item) {
+    arrOut.push( Math.max(...item))
+  });
   return arrOut
 }
 
