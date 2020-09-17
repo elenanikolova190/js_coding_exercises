@@ -6,6 +6,14 @@
  */
 const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
+
+  var outPut = 0;
+   for(let i = 0; i < arr.length; i++){
+     if((arr[i] % 5 ===0) || (arr[i] % 3 === 0)){
+       outPut += arr[i];
+     }
+   }
+   return outPut
 };
 
 /**
@@ -15,6 +23,17 @@ const sumMultiples = arr => {
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
+
+  var array = str.split("")
+  var chars = 'TGAC'
+  var isValid = true
+ 
+  isValid = array.every(function(item) {
+    if( chars.indexOf(item) < 0){
+      return false
+    } else return true
+  });
+  return isValid
 };
 
 /**
