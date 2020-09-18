@@ -43,6 +43,21 @@ const isValidDNA = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
+
+  var array = str.split("")
+  var dnaOut = ""
+  array.forEach(function(item) { 
+    if(item === "T") {
+      dnaOut = dnaOut.concat("A")
+    }else if(item === "A") {
+      dnaOut = dnaOut.concat("T")
+    }else if(item === "C") {
+      dnaOut = dnaOut.concat("G")
+    }else if(item === "G") {
+      dnaOut = dnaOut.concat("C")
+    }
+  });
+  return dnaOut
 };
 
 /**
@@ -52,6 +67,10 @@ const getComplementaryDNA = str => {
  */
 const isItPrime = n => {
   if (n === undefined) throw new Error("n is required");
+
+  for(var i = 2; i < n; i++)
+    if(n % i === 0) return false;
+  return n > 1;
 };
 
 /**
@@ -68,6 +87,16 @@ const isItPrime = n => {
 const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
+
+  var arrOut = []
+  if(n==0){
+    return arrOut
+  } else if (n == 1){
+    return Array(n).fill(fill)
+  } else if(n>1){
+    return Array(n).fill().map( x => Array(n).fill(fill))
+  }
+  
 };
 
 /**
@@ -85,6 +114,19 @@ const createMatrix = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
+
+  let countDays = 0
+  staff.forEach(function(item) {
+    for(let i=0; i<item.rota.length; i++)
+    {
+      if( item.rota[i].toLowerCase() === day.toLowerCase()){
+        countDays += 1;
+      }
+    }
+  });
+
+  if(countDays >= 3) return true
+  else return false
 };
 
 module.exports = {
