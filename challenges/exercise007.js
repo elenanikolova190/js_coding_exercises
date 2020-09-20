@@ -4,6 +4,13 @@
  */
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
+
+  var output = 0;
+  var arr = n.toString(10).split('').map(Number);
+  arr.forEach(function(item) { 
+    output += item;
+  });
+  return output
 };
 
 /**
@@ -17,6 +24,12 @@ const sumDigits = n => {
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
+
+  let output = [start]
+  for(let i = 1; i <= (end-start)/step; i++) {
+    output.splice(i,0,(output[i-1]+step))
+  }
+  return output
 };
 
 /**
@@ -51,6 +64,22 @@ const createRange = (start, end, step) => {
 const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+
+  var arrUsers = []
+  
+  
+  for(let i = 0; i<users.length; i++){
+    for(let j = 0; j< users[i].screenTime.length; j++){
+      //Check if the user has accessed internet on this date
+      if(users[i].screenTime[j].date === date) {
+        //access and add the usage times
+        if(Object.values(users[i].screenTime[j].usage).reduce((a, b) => a + b) > 100){
+          arrUsers.push(users[i].username)
+        }
+      }
+    }
+  }
+  return arrUsers
 };
 
 /**
@@ -65,6 +94,12 @@ const getScreentimeAlertList = (users, date) => {
  */
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
+
+  var red = parseInt(hexStr.substr(1, 2), 16)
+  var green = parseInt(hexStr.substr(3, 2), 16)
+  var blue = parseInt(hexStr.substr(5, 2), 16)
+
+  return "rgb(" + red.toString() + "," + green.toString()+ "," + blue.toString() + ")"
 };
 
 /**
@@ -78,7 +113,42 @@ const hexToRGB = hexStr => {
  * @param {Array} board
  */
 const findWinner = board => {
-  if (board === undefined) throw new Error("board is required");
+  if ((board === undefined) || (board.length === 0) || (board.length < 3)) throw new Error("board is required");
+
+  let output = null;
+  
+  //Check if any of rows are populated by the same player 
+  for (let i = 0; i < 3; i++) {
+    let genRow = board[i];
+    if ((genRow[0] == genRow[1]) && (genRow[0] == genRow[2])) {
+      output = genRow[0];
+    }
+  }
+
+//Check if any of columns are populated by the same player 
+  let row1 = board[0];
+  let row2 = board[1];
+  let row3 = board[2];
+
+  if (output == null) {
+    if ((row1[0] != null) && (row1[0] == row2[0]) && (row1[0] == row3[0])) {
+      output = row1[0];
+    } else if ((row1[1] != null) && (row1[1] == row2[1]) && (row1[1] == row3[1])) {
+      output = row1[1];
+    } else if ((row1[2] != null) && (row1[2] == row2[2]) && (row1[2] == row3[2])) {
+      output = row1[2];
+    }
+  }
+
+  // Check diagonals
+  if (output == null) {
+    if ((row1[0] != null) && (row1[0] == row2[1]) && (row1[0] == row3[2])) {
+      output = row1[0];
+    } else if ((row1[2] != null) && (row1[2] == row2[1]) && (row1[2] == row3[0])) {
+      output = row1[2];
+    }
+  }
+  return output;
 };
 
 module.exports = {
