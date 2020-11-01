@@ -10,7 +10,7 @@ const sumDigits = n => {
   arr.forEach(function(item) { 
     output += item;
   });
-  return output
+  return output;
 };
 
 /**
@@ -25,11 +25,11 @@ const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
 
-  let output = [start]
+  let output = [start];
   for(let i = 1; i <= (end-start)/step; i++) {
     output.splice(i,0,(output[i-1]+step))
   }
-  return output
+  return output;
 };
 
 /**
@@ -65,7 +65,7 @@ const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
 
-  var arrUsers = []
+  var arrUsers = [];
   
   
   for(let i = 0; i<users.length; i++){
@@ -74,12 +74,12 @@ const getScreentimeAlertList = (users, date) => {
       if(users[i].screenTime[j].date === date) {
         //access and add the usage times
         if(Object.values(users[i].screenTime[j].usage).reduce((a, b) => a + b) > 100){
-          arrUsers.push(users[i].username)
+          arrUsers.push(users[i].username);
         }
       }
     }
   }
-  return arrUsers
+  return arrUsers;
 };
 
 /**
@@ -95,9 +95,9 @@ const getScreentimeAlertList = (users, date) => {
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
 
-  var red = parseInt(hexStr.substr(1, 2), 16)
-  var green = parseInt(hexStr.substr(3, 2), 16)
-  var blue = parseInt(hexStr.substr(5, 2), 16)
+  var red = parseInt(hexStr.substr(1, 2), 16);
+  var green = parseInt(hexStr.substr(3, 2), 16);
+  var blue = parseInt(hexStr.substr(5, 2), 16);
 
   return "rgb(" + red.toString() + "," + green.toString()+ "," + blue.toString() + ")"
 };

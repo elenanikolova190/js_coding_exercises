@@ -24,16 +24,16 @@ const sumMultiples = arr => {
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
 
-  var array = str.split("")
-  var chars = 'TGAC'
-  var isValid = true
+  var array = str.split("");
+  var chars = 'TGAC';
+  var isValid = true;
  
   isValid = array.every(function(item) {
     if( chars.indexOf(item) < 0){
-      return false
-    } else return true
+      return false;
+    } else return true;
   });
-  return isValid
+  return isValid;
 };
 
 /**
@@ -44,20 +44,20 @@ const isValidDNA = str => {
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
 
-  var array = str.split("")
-  var dnaOut = ""
+  var array = str.split("");
+  var dnaOut = "";
   array.forEach(function(item) { 
     if(item === "T") {
-      dnaOut = dnaOut.concat("A")
+      dnaOut = dnaOut.concat("A");
     }else if(item === "A") {
-      dnaOut = dnaOut.concat("T")
+      dnaOut = dnaOut.concat("T");
     }else if(item === "C") {
-      dnaOut = dnaOut.concat("G")
+      dnaOut = dnaOut.concat("G");
     }else if(item === "G") {
-      dnaOut = dnaOut.concat("C")
+      dnaOut = dnaOut.concat("C");
     }
   });
-  return dnaOut
+  return dnaOut;
 };
 
 /**
@@ -88,13 +88,13 @@ const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
 
-  var arrOut = []
+  var arrOut = [];
   if(n==0){
-    return arrOut
+    return arrOut;
   } else if (n == 1){
-    return Array(n).fill(fill)
+    return Array(n).fill(fill);
   } else if(n>1){
-    return Array(n).fill().map( x => Array(n).fill(fill))
+    return Array(n).fill().map( x => Array(n).fill(fill));
   }
   
 };
@@ -115,7 +115,7 @@ const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
 
-  let countDays = 0
+  let countDays = 0;
   staff.forEach(function(item) {
     for(let i=0; i<item.rota.length; i++)
     {
@@ -125,8 +125,8 @@ const areWeCovered = (staff, day) => {
     }
   });
 
-  if(countDays >= 3) return true
-  else return false
+  if(countDays >= 3) return true;
+  else return false;
 };
 
 module.exports = {

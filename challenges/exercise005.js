@@ -38,7 +38,7 @@ const sumArrays = arrs => {
   var output = 0
   arrs.forEach(function(item){
     output += item.reduce(function(acc, val) { 
-      return acc  + val
+      return acc  + val;
     })
   })
   return output
@@ -47,16 +47,16 @@ const sumArrays = arrs => {
 const arrShift = arr => {
   if (arr === undefined) throw new Error("arr is required");
  
-  var newArr = []
+  var newArr = [];
 
   if(arr.length <2 ){
-    return arr
+    return arr;
   } else {
     var firstElement = arr[0]
     newArr = arr.copyWithin(0, arr.length-1)
     newArr.pop()
     newArr.push(firstElement)
-    return newArr
+    return newArr;
   }
 
 };
@@ -73,20 +73,20 @@ const findNeedle = (haystack, searchTerm) => {
     if(isString(haystack[key])){
       var interStr = haystack[key].toLowerCase()
       if(interStr.includes(searchTerm.toLowerCase())){
-        return true
+        return true;
       }
     }
   }
-  return false
+  return false;
 };
 
 const getWordFrequencies = str => {
   if (str === undefined) throw new Error("str is required");
   
   var punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
-  const frequencies = {}
-  var prevPointer = 0
-  str = str.toLowerCase()
+  const frequencies = {};
+  var prevPointer = 0;
+  str = str.toLowerCase();
  
   for(let i = 0; i <= str.length; i++){
     if ((str[i] === " ") || (punctuation.indexOf(str[i]) != -1) || (i===str.length)) 
@@ -106,7 +106,7 @@ const getWordFrequencies = str => {
     } 
   }
  // console.log(frequencies[word])
-  return frequencies
+  return frequencies;
 };
 
 module.exports = {

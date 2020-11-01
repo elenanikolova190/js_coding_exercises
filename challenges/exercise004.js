@@ -3,12 +3,12 @@ function findSmallNums(nums) {
   
   var arrOut = nums.filter(function(item) {
     if(item < 1){
-      return true
+      return true;
     } else {
-      return false 
+      return false; 
     }
   })
- return arrOut
+ return arrOut;
 }
 
 function findNamesBeginningWith(names, char) {
@@ -17,12 +17,12 @@ function findNamesBeginningWith(names, char) {
   
   var namesOut = names.filter(function(item){
     if( item[0] == char){
-      return true
+      return true;
     } else{
-      return false
+      return false;
     }
   })
-  return namesOut
+  return namesOut;
 }
 
 function findVerbs(words) {
@@ -30,12 +30,12 @@ function findVerbs(words) {
   
   var wordsOut = words.filter(function(item){
     if(item.substring(0,3) == "to "){
-      return true
+      return true;
     } else{
-      return false
+      return false;
     }
   })
-return wordsOut
+return wordsOut;
 } 
 
 function getIntegers(nums) {
@@ -43,54 +43,54 @@ function getIntegers(nums) {
 
   var arrOut = nums.filter(function(item) {
     if(item % 1 === 0){
-      return true
+      return true;
     } else{
-      return false
+      return false;
     }
   })
-return arrOut  
+return arrOut;  
 }
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
   
-  var cities = [];
+  let cities = [];
   users.forEach(function(item) {
-    cities.push(item.data.city.displayName)
+    cities.push(item.data.city.displayName);
   });
-return cities
+return cities;
 }
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
   
-  var numsOut = nums.map(function(item) {
-    return Math.round(Math.sqrt(item) * 100) / 100 
+  const numsOut = nums.map(function(item) {
+    return Math.round(Math.sqrt(item) * 100) / 100; 
   });
-  return numsOut
+  return numsOut;
 }
 
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
   
-  var strOut = sentences.filter(function(item) {
+  let strOut = sentences.filter(function(item) {
     if(item.toLowerCase().indexOf(str.toLowerCase()) != -1){
-      return true
+      return true;
     } else {
-      return false
+      return false;
     }
   })
-  return strOut
+  return strOut;
 }
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
   
   var arrOut = triangles.map(function(item) {
-    return Math.max(...item)
+    return Math.max(...item);
   });
-  return arrOut
+  return arrOut;
 }
 
 module.exports = {

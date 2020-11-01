@@ -15,7 +15,7 @@ function camelCaseWords(words) {
   for(i = 1; i < words.length; i++){
     outWord += words[i].charAt(0).toUpperCase() + words[i].slice(1).toLowerCase();
   }
-  return outWord
+  return outWord;
 }
 
 function getTotalSubjects(people) {
@@ -25,7 +25,7 @@ function getTotalSubjects(people) {
   for(i = 0; i < people.length; i++){
     numSubjects += people[i].subjects.length;
   }
-  return numSubjects
+  return numSubjects;
 }
 
 function checkIngredients(menu, ingredient) {
@@ -40,7 +40,7 @@ function checkIngredients(menu, ingredient) {
       break;
     }
   }
-  return found
+  return found;
 }
 
 function duplicateNumbers(arr1, arr2) {
@@ -53,10 +53,10 @@ function duplicateNumbers(arr1, arr2) {
   for(i = 0; i < arrOut.length; i++ ){
     if(arrOut[i]==arrOut[i+1]){
       var removed = arrOut.splice(i+1, 1)
-      i--
+      i--;
     }
   }
-  return arrOut
+  return arrOut;
 }
 
 
